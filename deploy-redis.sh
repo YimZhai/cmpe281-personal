@@ -1,0 +1,7 @@
+pssh -i -h hosts.txt -l ec2-user 'wget http://download.redis.io/redis-stable.tar.gz'
+pssh -i -h hosts.txt -l ec2-user 'tar xvzf redis-stable.tar.gz'
+pssh -i -h hosts.txt -l ec2-user 'sudo yum -y update'
+pssh -i -h hosts.txt -l ec2-user 'sudo yum -y install gcc make'
+pssh -i -h hosts.txt -l ec2-user 'cd redis-stable; sudo make distclean'
+pssh -i -h hosts.txt -l ec2-user 'cd redis-stable; sudo make'
+pssh -i -h hosts.txt -l ec2-user 'cd redis-stable; sudo make install'
